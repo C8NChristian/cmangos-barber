@@ -215,6 +215,13 @@ namespace cmangos_module
                 case RACE_TROLL:
                     text3 = GOSSIP_BARBER_TUSKS;
                     break;
+                case RACE_DRAENEI:
+                    player->getGender() == GENDER_FEMALE ? text3 = GOSSIP_BARBER_HORNS : text3 = GOSSIP_BARBER_TENTACLES;
+                    break;
+                case RACE_BLOODELF:
+                    if (player->getGender() == GENDER_FEMALE)
+                        text3 = GOSSIP_BARBER_EARRINGS;
+                    break;
 #if EXPANSION > 0
                 case RACE_BLOODELF:
                     if (player->getGender() == GENDER_FEMALE)
@@ -362,14 +369,16 @@ namespace cmangos_module
     maxStyles_t maxHairStyles[MAX_RACES] =
     {
         {0,0},  //                        0
-        {11,18},// RACE_HUMAN           = 1,
-        {6,6},  //  RACE_ORC            = 2,
-        {10,13},// RACE_DWARF           = 3,
-        {6,6},  // RACE_NIGHTELF        = 4,
-        {10,9}, // RACE_UNDEAD_PLAYER   = 5,
-        {7,6},  //  RACE_TAUREN         = 6,
-        {6,6},  // RACE_GNOME           = 7,
-        {5,4},  // RACE_TROLL           = 8,
+        {16,23},// RACE_HUMAN           = 1,
+        {11,12},// RACE_ORC             = 2,
+        {15,18},// RACE_DWARF           = 3,
+        {11,11},// RACE_NIGHTELF        = 4,
+        {14,14},// RACE_UNDEAD_PLAYER   = 5,
+        {12,11},//  RACE_TAUREN         = 6,
+        {11,11},// RACE_GNOME           = 7,
+        {9,9},  // RACE_TROLL           = 8,
+        {13,15},//  RACE_DRAENEI        = 9,
+        {15,18},//  RACE_BLOODELF       = 10,
 #if EXPANSION > 0
         {0,0},  // RACE_GOBLIN          = 9,
         {9,13}, //  RACE_BLOODELF       = 10,
@@ -388,6 +397,8 @@ namespace cmangos_module
         2,  //  RACE_TAUREN         = 6,
         8,  // RACE_GNOME           = 7,
         9,  // RACE_TROLL           = 8,
+        6,  //  RACE_DRAENEI        = 9,
+        9,  //  RACE_BLOODELF       = 10,
 #if EXPANSION > 0
         0,  // RACE_GOBLIN          = 9,
         9,  //  RACE_BLOODELF       = 10,
@@ -406,6 +417,8 @@ namespace cmangos_module
         {6,4},  // RACE_TAUREN          = 6,
         {7,6},  // RACE_GNOME           = 7,
         {10,5}, // RACE_TROLL           = 8,
+        {7,6},  // RACE_DRAENEI         = 9,
+        {10,9}, // RACE_BLOODELF        = 10,
 #if EXPANSION > 0
         {0,0},  // RACE_GOBLIN          = 9,
         {10,9}, // RACE_BLOODELF        = 10,
